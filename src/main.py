@@ -1,21 +1,14 @@
-import random
-
-def simulate_sensor(n=100):
-    values = []
-
-    for _ in range(n):
-        values.append(random.uniform(20, 30))
-
-    return values
+from data_generator import generate_sensor_data
+from analysis import basic_statistics
 
 
 def main():
 
-    data = simulate_sensor()
+    df = generate_sensor_data()
 
-    print("Total:", len(data))
-    print("Max:", max(data))
-    print("Min:", min(data))
+    stats = basic_statistics(df)
+
+    print(stats)
 
 
 if __name__ == "__main__":
